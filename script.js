@@ -20,7 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function addToCurrentInput(value) {
+    // Clear the display before adding new numbers
+    if (operator === "" && firstOperand !== "") {
+      clear();
+    }
     currentInput += value;
+    // Limit the length of currentInput to fit the display
+    if (currentInput.length > 10) {
+      currentInput = currentInput.slice(0, 10);
+    }
     updateDisplay(firstOperand + " " + operator + " " + currentInput);
   }
 
